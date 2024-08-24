@@ -1,0 +1,565 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #141414, #3a3a3a); /* Gradient background */
+    color: #e5e5e5; /* Light text color */
+    font-family:  "Montserrat", sans-serif; /* Clean, sans-serif font */
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: -1;
+    opacity: 0.7; /* Slightly reduce transparency for better text visibility */
+}
+
+/* Car Container */
+.Car {
+    background-color: rgba(51, 51, 51, 0.85); /* Slightly more transparent */
+    padding: 50px;
+    border-radius: 10px; /* Increased border radius */
+    margin: 60px auto;
+    max-width: 900px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Softer shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 10;
+}
+
+.Car:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6); /* Deeper shadow on hover */
+}
+
+/* Tesla Cars Header */
+.Tesla_Cars {
+    color: #e50914; /* Netflix red */
+    font-weight: 700; /* Bolder font weight */
+    font-family: 'Bebas Neue', 'Helvetica Neue', Arial, sans-serif; /* Bold, clean font */
+    font-size: 72px; /* Larger font size */
+    text-transform: uppercase;
+    margin: 20px 0;
+    display: inline-block;
+    letter-spacing: 3px; /* Increased letter spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for depth */
+}
+
+/* Model Details */
+.Model {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 20px 0;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #e50914;
+  font-family: sans-serif;
+  font-size: 24px; /* Slightly larger font size */
+  font-weight: 600;
+  transition: 0.5s;
+  z-index: 1;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.Model::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid #e50914;
+  border-bottom: 2px solid #e50914;
+  transform: scaleY(2);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.Model::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e50914;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.Model:hover {
+  color: #fff;
+  
+}
+
+.Model:hover::before {
+  transform: scaleY(1.1);
+  opacity: 1;
+}
+
+.Model:hover::after {
+  transform: scaleY(1.1);
+  opacity: 1;
+}
+
+
+
+/* Button Styles */
+/* Color schemes for different button types */
+:root{
+    /* color type A */
+    --line_color :#e50914 ;
+    --back_color : #FFECF6  ;
+
+    /* color type B */
+    /* --line_color : #1b1919 ;
+    --back_color : #E9ECFF  ; */
+
+    /* color type C */
+    /* --line_color : #00135C ;
+    --back_color : #DEFFFA  ; */
+}
+  
+  /* Basic button styling */
+.button {
+    position: relative;
+    z-index: 0;
+    width: 240px;
+    height: 56px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #e50914;
+    letter-spacing: 2px;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  
+  /* Button text styling */
+.button__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Decorative lines */
+.button::before,
+.button::after,
+.button__text::before,
+.button__text::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    border-radius: 2px;
+    background: #e50914;
+    transition: all .5s ease;
+  }
+  
+  .button::before {
+    top: 0;
+    left: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+  }
+  
+  .button::after {
+    top: 0;
+    right: 54px;
+    width: 8px;
+  }
+  
+  .button__text::before {
+    bottom: 0;
+    right: 54px;
+    width: calc(100% - 56px * 2 - 16px);
+  }
+  
+  .button__text::after {
+    bottom: 0;
+    left: 54px;
+    width: 8px;
+  }
+  
+  /* Decorative lines at the edges of the button */
+  .button__line {
+    position: absolute;
+    top: 0;
+    width: 56px;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .button__line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150%;
+    height: 100%;
+    border: solid 3px var(--line_color);
+    border-radius: 300px;
+    box-sizing: border-box;
+  }
+  .button__line:nth-child(1),
+  .button__line:nth-child(1)::before {
+    left: 0;
+  }
+  .button__line:nth-child(2),
+  .button__line:nth-child(2)::before {
+    right: 0;
+  }
+  
+  /* Hover effects */
+  .button:hover {
+    letter-spacing: 6px;
+  }
+
+  .button:hover::before,
+  .button:hover .button__text::before {
+    width: 8px;
+  }
+  
+  .button:hover::after,
+  .button:hover .button__text::after {
+    width: calc(100% - 56px * 2 - 16px);
+  }
+  
+  /* Decorative shapes around the button */
+
+
+
+
+  /* Hover animations */
+  .button:hover .button__drow1 {
+    animation: drow1 ease-in .06s;
+    animation-fill-mode: forwards;
+  }
+  
+  .button:hover .button__drow1::before {
+    animation: drow2 linear .08s .06s;
+    animation-fill-mode: forwards;
+  }
+  
+  .button:hover .button__drow1::after {
+    animation: drow3 linear .03s .14s;
+    animation-fill-mode: forwards;
+  }
+  
+  .button:hover .button__drow2 {
+    animation: drow4 linear .06s .2s;
+    animation-fill-mode: forwards;
+  }
+  
+  .button:hover .button__drow2::before {
+    animation: drow3 linear .03s .26s;
+    animation-fill-mode: forwards;
+  }
+  
+  .button:hover .button__drow2::after {
+    animation: drow5 linear .06s .32s;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Keyframe animations */
+  @keyframes drow1 {
+    0% { height: 0; }
+    100% { height: 100px; }
+  }
+  
+  @keyframes drow2 {
+    0% { width: 0; opacity: 0; }
+    10% { opacity: 0; }
+    11% { opacity: 1; }
+    100% { width: 120px; }
+  }
+  
+  @keyframes drow3 {
+    0% { width: 0; }
+    100% { width: 80px; }
+  }
+  
+  @keyframes drow4 {
+    0% { height: 0; }
+    100% { height: 120px; }
+  }
+  
+  @keyframes drow5 {
+    0% { width: 0; }
+    100% { width: 124px; }
+  }
+  
+  /* Container styling */
+  .container {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button:not(:last-child) {
+    margin-bottom: 64px;
+  }
+  
+/* Image Styles */
+.Image {
+    border: 4px solid #e50914; /* Thicker border */
+    border-radius: 12px; /* Slightly rounded corners */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow */
+    opacity: 0.95; /* More opaque for focus */
+    transition: opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+.Image:hover {
+    opacity: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); /* Deeper shadow on hover */
+}
+
+/* Nav Bar */
+/* Base styling for the navbar */
+#navbar {
+    display: flex;
+    justify-content: space-between; /* Space out logo and nav-links */
+    align-items: center;
+    background: rgba(20, 20, 20, 0.7); /* Semi-transparent dark background */
+    padding: 10px 0%; /* Padding for a more spacious feel */
+    color: #ffffff; /* White text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    position: absolute; /* Fixed position for the navbar */
+    padding-right:15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1000; /* Ensure it stays on top */
+    width: 100%;
+    backdrop-filter: blur(10px); /* Blur effect for a glassy look */
+    transition: background-color 0.3s, padding 0.3s; /* Smooth transition */
+}
+
+/* Style changes when scrolling */
+#navbar.scrolled {
+    background-color: rgba(20, 20, 20, 0.9); /* Darken background when scrolled */
+    padding: 8px 5%; /* Reduce padding when scrolled */
+}
+
+/* Styling for the logo */
+
+.tesla-logo {
+  margin-right: 70px;
+  padding-left: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align logo to the left */
+}
+
+.logo {
+  background-image: url("images-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100px; /* Adjust the width to fit your logo */
+}
+
+/* For TESLA in center */
+
+.nav-logo{
+  padding-top: 35px;
+  margin-left: 200px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Align logo to the left */
+}
+
+.logo-name {
+  background-image: url("tesla-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 300px; /* Adjust the width to fit your logo */
+  align-items: center;     
+}
+
+
+
+/* Styling for navigation links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Wrap nav links on smaller screens */
+    justify-content: center; /* Center the nav-links */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for individual navigation items */
+.nav-item {
+    margin: 0 15px; /* Spacing between nav items */
+    text-decoration: none;
+    color: #ffffff; /* White text */
+    font-weight: 600; /* Slightly bolder font */
+    font-size: 16px; /* Medium font size */
+    text-transform: uppercase; /* Uppercase text */
+    position: relative; /* Relative positioning for pseudo-elements */
+    padding: 5px 0; /* Padding for hover effect */
+    transition: color 0.3s, transform 0.3s; /* Smooth hover transitions */
+}
+
+/* Styling for underline effect on hover */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Thin underline on hover */
+    background: #e50914; /* Netflix red underline */
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: right;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effects for navigation items */
+.nav-item:hover::after {
+    transform: scaleX(1); /* Expand underline on hover */
+    transform-origin: left;
+}
+
+.nav-item:hover {
+    color: #e50914; /* Change text color on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.logo::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Thin underline on hover */
+    background: #e50914; /* Netflix red underline */
+    transform: scaleX(0); /* Start with no width */
+    transform-origin: right;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.logo:hover::after{
+  transform: scaleX(0.4); /* Expand underline on hover */
+  transform-origin: left;
+}
+
+.logo:hover{
+    color: #e50914; /* Change text color on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+
+/* Responsive adjustments */
+
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #141414, #333333); /* Gradient background */
+    color: #e5e5e5;
+    padding: 60px 20px; /* Increased padding for a more spacious feel */
+    border-top: 3px solid #e50914; /* Thicker border for emphasis */
+    text-align: center;
+    width: 100%; /* Full width */
+    margin-top: 40px; /* More space above the footer */
+    position: relative; /* Default position */
+}
+
+/* Footer Container */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding to keep content away from edges */
+}
+
+/* Footer Text */
+.footer-container p {
+    margin: 10px 0;
+    font-size: 18px; /* Larger font size for readability */
+    line-height: 1.6; /* Increased line height */
+}
+
+/* Footer Links */
+.footer-links {
+    margin: 30px 0; /* Increased margin for spacing */
+    display: flex;
+    justify-content: center; /* Center the links */
+    flex-wrap: wrap; /* Wrap links on smaller screens */
+}
+
+.footer-link, .social-link {
+    color: #e50914; /* Link color */
+    text-decoration: none;
+    margin: 0 15px; /* More spacing between links */
+    font-weight: 600; /* Slightly bolder text */
+    font-size: 16px; /* Medium font size */
+    transition: color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.footer-link:hover, .social-link:hover {
+    color: #ffffff; /* Change color on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Social Icons */
+.footer-links .social-link {
+    font-size: 20px; /* Larger font size for icons */
+}
+
+.footer-links .social-link::before {
+    content: ''; /* Placeholder for icons */
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px; /* Space between icon and text */
+    background-size: cover;
+    vertical-align: middle; /* Align icons with text */
+}
+
+/* Twitter Icon */
+.footer-links .social-link.twitter::before {
+    background-image: url('path/to/twitter-icon.svg'); /* Twitter icon */
+}
+
+/* Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-link, .social-link {
+        margin: 10px 0; /* Adjust spacing on smaller screens */
+    }
+}
