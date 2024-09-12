@@ -14,7 +14,6 @@ Welcome to the Tesla Cars Webpage project! This is a simple, modern webpage show
 
 - HTML5
 - CSS3
-- Video (MP4 format)
 - Google Fonts
 
 ## Installation
